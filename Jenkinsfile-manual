@@ -1,14 +1,11 @@
 pipeline {
     agent any
-    echo 'before environment'
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
         IMAGE_NAME = 'urvishsoni16/ci-cd-jenkins-demo-app-new'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
-    echo 'before stages'
     stages {
-        echo 'inside stages'
         stage('Checkout') {
             steps {
                 echo 'Repository checked out by Checkout SCM'
